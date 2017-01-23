@@ -37,6 +37,7 @@ public class GameService {
 
         Game game = new Game();
         game.setBet_amount(bet);
+        game.setUser(user);
 
         return this.gameRepository.save(game);
     }
