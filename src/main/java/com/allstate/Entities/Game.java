@@ -22,6 +22,16 @@ public class Game {
     private Date modified;
     private String status;
     private int version;
+
+    @Column(name = "dealer_card")
+    private String dealerCard;
+    @Column(name ="player_card")
+    private String playerCard;
+    @Column(name ="player_card_value")
+    private Integer playerCardValue;
+    @Column(name ="dealer_card_value")
+    private Integer dealerCardValue;
+
     private Date created;
     private int bet_amount;
     private Action action;

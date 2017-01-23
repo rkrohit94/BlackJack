@@ -1,6 +1,7 @@
 package com.allstate.Entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -13,15 +14,20 @@ import java.util.List;
  */
 @Entity
 @Table(name = "users")
+@Data
 public class User {
 
     private int id;
     private String name;
     private int version;
+
     private int balance;
     private Date created;
     private Date Modified;
     private List<Game> games;
+
+    public User() {
+    }
 
     @Id
     @GeneratedValue
@@ -80,10 +86,10 @@ public class User {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     @JsonIgnore
-    public List<Game> getTransactions() {
+    public List<Game> getGames() {
         return games;
     }
-    public void setTransactions(List<Game> games) {
+    public void setGames(List<Game> games) {
         this.games = games;
     }
 }
